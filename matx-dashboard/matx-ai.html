@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>matX Overview Dashboard</title>
+  <title>register</title>
+  
+  
+  <link rel="stylesheet" href="css/styles.css"> 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmaegrn7Jxy1Hbw0s6sIir2GOAaOiCHuleEw&s" alt="matX Logo" class="logo">
+            <div class="header-info">
+                
+                <h1>Welcome to matX - Your AI-powered business solution/</h1>
+                
+            </div>
+            <div class="user-icon">
+                <a href="register.html" id="register-link" style="color: white;">Register</a>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-etsNxNtN4wsYsfITN1nLJ-eFLz9FDGPvyg&s" alt="User Icon">
+                <span id="user-name"></span>
+            </div>
+        </div>
+    </header>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+       
+      </div>
+      <nav>
+        <ul>
+          
+            <li><a href="matx-ai.html">matX AI</a></li>
+            <li><a href="trends.html">Trends</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="active"><a href="settings.html">Settings</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <h1>Overview</h1>
+      <div class="card-row">
+        <div class="card">
+          <h3>Current Available</h3>
+          <p>345 kg</p>
+          <p>As at 12:10 PM</p>
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hourglass-split" viewBox="0 0 16 16">
+              <path d="M2.5 15.5A2.5 2.5 0 0 1 4.5 14h7a2.5 2.5 0 0 1 2.5 2.5v-11A2.5 2.5 0 0 1 14.5 1h-7A2.5 2.5 0 0 1 4.5 2.5v11zm1.5-10a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-6z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="card">
+          <h3>Today's Consumption</h3>
+          <p>15 kg</p>
+          <p>As at 12:10 PM</p>
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
+              <path d="M14.5 0a.5.5 0 0 1 .5.5V1h-1v.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V1h-1a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              <path d="M2.5 3h11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+              <path d="M14 7h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="card">
+          <h3>This Month Consumption</h3>
+          <p>545 kg</p>
+          <p>12 Days</p>
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
+              <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+              <path d="M2.5 3h11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+              <path d="M1.5 6.5h13a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="card">
+          <h3>Monthly Average</h3>
+          <p>245 kg</p>
+          <p>20 Months</p>
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 7.646a.5.5 0 0 1 .708 0L8 10.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Total Consumption</h2>
+        <div class="chart-container">
+          <canvas id="totalConsumptionChart"></canvas>
+        </div>
+        <div class="filter-row">
+          <div class="filter-dropdown">
+            <select class="dropdown">
+              <option value="All Types">All Types</option>
+              <option value="Type 1">Type 1</option>
+              <option value="Type 2">Type 2</option>
+            </select>
+          </div>
+          <div class="filter-dropdown">
+            <select class="dropdown">
+              <option value="All Locations">All Locations</option>
+              <option value="Location 1">Location 1</option>
+              <option value="Location 2">Location 2</option>
+            </select>
+          </div>
+          <div class="filter-dropdown">
+            <select class="dropdown">
+              <option value="This Year">This Year</option>
+              <option value="Last Year">Last Year</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Location Based Consumption By</h2>
+        <div class="card-row">
+          <div class="card">
+            <h3>Highest</h3>
+            <p>325 kg</p>
+            <p>Upperhill</p>
+            <div class="chart-container">
+              <canvas id="highestConsumptionChart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Second Highest</h3>
+            <p>283 kg</p>
+            <p>Shell Waigaki</p>
+            <div class="chart-container">
+              <canvas id="secondHighestConsumptionChart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Lowest</h3>
+            <p>85 kg</p>
+            <p>Orbit Place</p>
+            <div class="chart-container">
+              <canvas id="lowestConsumptionChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="button-row">
+          <button class="button">Yearly</button>
+          <button class="button">Monthly</button>
+          <button class="button active">Weekly</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data for the charts (replace with your actual data)
+    const totalConsumptionData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      datasets: [{
+        label: 'Total Consumption',
+        data: [5.6, 4.5, 5.8, 5.2, 5.9, 5.7, 1.2, 0, 0, 0, 0, 0], // Example data
+        backgroundColor: '#228B22' // Green color
+      }]
+    };
+
+    const highestConsumptionData = {
+      labels: ['Upperhill', 'Shell Waigaki', 'Orbit Place'],
+      datasets: [{
+        label: 'Location Consumption',
+        data: [325, 283, 85], // Example data
+        backgroundColor: [
+          '#228B22', // Green color
+          '#228B22', // Green color
+          '#228B22' // Green color
+        ]
+      }]
+    };
+
+    const secondHighestConsumptionData = {
+      labels: ['Upperhill', 'Shell Waigaki', 'Orbit Place'],
+      datasets: [{
+        label: 'Location Consumption',
+        data: [325, 283, 85], // Example data
+        backgroundColor: [
+          '#228B22', // Green color
+          '#228B22', // Green color
+          '#228B22' // Green color
+        ]
+      }]
+    };
+
+    const lowestConsumptionData = {
+      labels: ['Upperhill', 'Shell Waigaki', 'Orbit Place'],
+      datasets: [{
+        label: 'Location Consumption',
+        data: [325, 283, 85], // Example data
+        backgroundColor: [
+          '#228B22', // Green color
+          '#228B22', // Green color
+          '#228B22' // Green color
+        ]
+      }]
+    };
+
+    // Create charts using Chart.js 
+    const totalConsumptionChart = new Chart(document.getElementById('totalConsumptionChart'), {
+      type: 'bar',
+      data: totalConsumptionData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const highestConsumptionChart = new Chart(document.getElementById('highestConsumptionChart'), {
+      type: 'doughnut',
+      data: highestConsumptionData,
+      options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+
+    const secondHighestConsumptionChart = new Chart(document.getElementById('secondHighestConsumptionChart'), {
+      type: 'doughnut',
+      data: secondHighestConsumptionData,
+      options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+
+    const lowestConsumptionChart = new Chart(document.getElementById('lowestConsumptionChart'), {
+      type: 'doughnut',
+      data: lowestConsumptionData,
+      options: {
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+
+    // Add event listeners to the filter dropdowns and buttons (if needed)
+    // ...
+  </script>
+</body>
+</html>

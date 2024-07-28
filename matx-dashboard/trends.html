@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>matX Trends Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmaegrn7Jxy1Hbw0s6sIir2GOAaOiCHuleEw&s" alt="matX Logo" class="logo">
+      <div class="header-actions">
+        <div class="user-icon">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-etsNxNtN4wsYsfITN1nLJ-eFLz9FDGPvyg&s" alt="User Icon">
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo"></div>
+      <nav>
+        <ul>
+          <li><a href="matx-ai.html">matX AI</a></li>
+            <li><a href="trends.html">Trends</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="active"><a href="settings.html">Settings</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-content">
+      <h1>Trends</h1>
+
+      <div class="section">
+        <div class="header-row">
+          <div class="header-section">
+            <h2>Highest Consumptions</h2>
+          </div>
+          <div class="header-section">
+            <h2>Lowest Consumptions</h2>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card">
+            <h3>By time period</h3>
+            <p>234 kg</p>
+            <p>From 12:30 PM to 2:45 PM</p>
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2.5a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card">
+            <h3>By day of the week</h3>
+            <p>470 kg</p>
+            <p>Friday</p>
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                <path d="M2.5 3h11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                <path d="M2.5 7h11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                <path d="M2.5 11h11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card">
+            <h3>By date of the month</h3>
+            <p>467 kg</p>
+            <p>23rd Each month</p>
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
+                <path d="M14.5 0a.5.5 0 0 1 .5.5V1h-1v.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V1h-1a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                <path d="M2.5 3h11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                <path d="M14 7h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card">
+            <h3>By month</h3>
+            <p>121 tons</p>
+            <p>May</p>
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-event" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                <path d="M2.5 3h11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+                <path d="M1.5 6.5h13a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Consumption Within 24 Hours</h2>
+        <p>1 PM & 2 PM: Highest consumption times</p>
+        <div class="chart-container">
+          <canvas id="consumptionChart"></canvas>
+        </div>
+
+        <div class="header-row">
+          <div class="header-section">
+            <select class="dropdown">
+              <option value="All Type">All Type</option>
+              <option value="Type 1">Type 1</option>
+              <option value="Type 2">Type 2</option>
+            </select>
+          </div>
+          <div class="header-section">
+            <select class="dropdown">
+              <option value="All Locations">All Locations</option>
+              <option value="Location 1">Location 1</option>
+              <option value="Location 2">Location 2</option>
+            </select>
+          </div>
+          <div class="header-section">
+            <select class="dropdown">
+              <option value="All Days">All Days</option>
+              <option value="Day 1">Day 1</option>
+              <option value="Day 2">Day 2</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Consumption By Cylinders</h2>
+        <div class="card-row">
+          <div class="card">
+            <h3>Total</h3>
+            <p>200 Cylinders</p>
+            <p>9 tons</p>
+          </div>
+          <div class="card">
+            <h3>Weekly</h3>
+            <p>4 Cylinders</p>
+            <p>180 kg</p>
+          </div>
+          <div class="card">
+            <h3>Monthly</h3>
+            <p>16 Cylinders</p>
+            <p>720 kg</p>
+          </div>
+          <div class="card">
+            <h3>Yearly</h3>
+            <p>192 Cylinders</p>
+            <p>8.6 tons</p>
+          </div>
+        </div>
+        <div class="header-row">
+          <div class="header-section">
+            <select class="dropdown">
+              <option value="All Type">All Type</option>
+              <option value="Type 1">Type 1</option>
+              <option value="Type 2">Type 2</option>
+            </select>
+          </div>
+          <div class="header-section">
+            <select class="dropdown">
+              <option value="All Locations">All Locations</option>
+              <option value="Location 1">Location 1</option>
+              <option value="Location 2">Location 2</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Display modals
+    const loginBtn = document.getElementById('login-btn');
+    const registerBtn = document.getElementById('register-btn');
+    const loginModal = document.getElementById('login-modal');
+    const registerModal = document.getElementById('register-modal');
+    const loginClose = document.getElementById('login-close');
+    const registerClose = document.getElementById('register-close');
+
+    loginBtn.addEventListener('click', () => {
+      loginModal.style.display = 'flex';
+    });
+
+    registerBtn.addEventListener('click', () => {
+      registerModal.style.display = 'flex';
+    });
+
+    loginClose.addEventListener('click', () => {
+      loginModal.style.display = 'none';
+    });
+
+    registerClose.addEventListener('click', () => {
+      registerModal.style.display = 'none';
+    });
+
+    window.onclick = function(event) {
+      if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+      }
+      if (event.target === registerModal) {
+        registerModal.style.display = 'none';
+      }
+    }
+
+    // Login form validation
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      if (!email) {
+        document.getElementById('login-email-error').textContent = 'Email is required.';
+        return;
+      } else {
+        document.getElementById('login-email-error').textContent = '';
+      }
+
+      if (!password) {
+        document.getElementById('login-password-error').textContent = 'Password is required.';
+        return;
+      } else {
+        document.getElementById('login-password-error').textContent = '';
+      }
+
+      // Add login logic here
+
+      loginModal.style.display = 'none';
+    });
+
+    // Registration form validation
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('register-email').value;
+      const password = document.getElementById('register-password').value;
+      const confirmPassword = document.getElementById('register-confirm-password').value;
+
+      if (!email) {
+        document.getElementById('register-email-error').textContent = 'Email is required.';
+        return;
+      } else {
+        document.getElementById('register-email-error').textContent = '';
+      }
+
+      if (!password) {
+        document.getElementById('register-password-error').textContent = 'Password is required.';
+        return;
+      } else {
+        document.getElementById('register-password-error').textContent = '';
+      }
+
+      if (password !== confirmPassword) {
+        document.getElementById('register-confirm-password-error').textContent = 'Passwords do not match.';
+        return;
+      } else {
+        document.getElementById('register-confirm-password-error').textContent = '';
+      }
+
+      // Add registration logic here
+
+      registerModal.style.display = 'none';
+    });
+
+    // Chart initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      const consumptionData = {
+        labels: ['12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM',
+                 '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'],
+        datasets: [{
+          label: 'Gas Consumption (kg)',
+          data: [0, 0, 0, 0, 0, 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 40, 35, 30, 25, 20, 15, 10, 5, 0],
+          backgroundColor: '#228B22',
+          borderColor: '#228B22',
+          borderWidth: 1
+        }]
+      };
+
+      const consumptionChart = new Chart(document.getElementById('consumptionChart'), {
+        type: 'bar',
+        data: consumptionData,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

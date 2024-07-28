@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations - matX Business Account</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmaegrn7Jxy1Hbw0s6sIir2GOAaOiCHuleEw&s" alt="matX Logo" class="logo">
+            <div class="header-info">
+                <h1>matX Business Account - matX AI</h1>
+                <p>dashboard.matx.africa/locations/</p>
+            </div>
+            <div class="user-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-etsNxNtN4wsYsfITN1nLJ-eFLz9FDGPvyg&s" alt="User Icon">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="side-menu">
+            <ul>   
+                <li><a href="matx-ai.html">matX AI</a></li>
+                <li><a href="trends.html">Trends</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li class="active"><a href="settings.html">Settings</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Locations</h2>
+            
+            <div class="filters">
+                <input type="text" id="search-box" placeholder="Search by location name">
+                <select id="region-filter">
+                    <option value="">All Regions/Towns</option>
+                    <option value="Nairobi">Nairobi</option>
+                    <option value="Kiambu">Kiambu</option>
+                    <option value="Diani">Diani</option>
+                </select>
+                <select id="type-filter">
+                    <option value="">All Types</option>
+                    <option value="Full">Full</option>
+                    <option value="Express">Express</option>
+                </select>
+                <select id="status-filter">
+                    <option value="">All Status</option>
+                    <option value="Online">Online</option>
+                    <option value="Offline">Offline</option>
+                </select>
+            </div>
+            
+            <button id="add-location-button">Add Location</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Region/Town</th>
+                        <th>Type</th>
+                        <th>Device</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="locations-table-body">
+                  
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button id="prev-page">← Previous</button>
+                <span id="page-info">Page 1 of 5</span>
+                <button id="next-page">Next →</button>
+                <select id="items-per-page">
+                    <option value="10">10 Per Page</option>
+                    <option value="20">20 Per Page</option>
+                    <option value="50">50 Per Page</option>
+                </select>
+            </div>
+        </main>
+    </div>
+
+    <div id="add-location-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-add-location-modal">&times;</span>
+            <h2>Add Location</h2>
+            <form id="add-location-form">
+                <input type="text" id="add-location-name" placeholder="Location Name" required>
+                <input type="text" id="add-location-region" placeholder="Region/Town" required>
+                <input type="text" id="add-location-type" placeholder="Type" required>
+                <input type="text" id="add-location-device" placeholder="Device" required>
+                <input type="text" id="add-location-status" placeholder="Status" required>
+                <button type="submit">Add Location</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Location Modal -->
+    <div id="edit-location-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-edit-location-modal">&times;</span>
+            <h2>Edit Location</h2>
+            <form id="edit-location-form">
+                <input type="hidden" id="edit-location-id">
+                <input type="text" id="edit-location-name" placeholder="Location Name" required>
+                <input type="text" id="edit-location-region" placeholder="Region/Town" required>
+                <input type="text" id="edit-location-type" placeholder="Type" required>
+                <input type="text" id="edit-location-device" placeholder="Device" required>
+                <input type="text" id="edit-location-status" placeholder="Status" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        
+const locations = [
+{ id: 1, location: "Nairobi Central", region: "Nairobi", type: "Full", device: "Device 1", status: "Online" },
+{ id: 2, location: "Kiambu Plaza", region: "Kiambu", type: "Express", device: "Device 2", status: "Offline" },
+{ id: 3, location: "Diani Beach", region: "Diani", type: "Full", device: "Device 3", status: "Online" },
+  
+];
+
+let currentPage = 1;
+let itemsPerPage = 10;
+
+function renderTable() {
+    const tbody = document.getElementById('locations-table-body');
+    tbody.innerHTML = '';
+
+    const filteredLocations = applyFilters(locations);
+    const paginatedLocations = paginate(filteredLocations, currentPage, itemsPerPage);
+
+    paginatedLocations.forEach(location => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${location.location}</td>
+            <td>${location.region}</td>
+            <td>${location.type}</td>
+            <td>${location.device}</td>
+            <td>${location.status}</td>
+            <td>button class="action-button" data-id="${location.id}" data-action="edit">Edit</button>
+            <button class="action-button" data-id="${location.id}" data-action="delete">Delete</button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+
+    document.getElementById('page-info').textContent = `Page ${currentPage} of ${Math.ceil(filteredLocations.length / itemsPerPage)}`;
+
+    document.querySelectorAll('.action-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const id = parseInt(event.target.getAttribute('data-id'));
+            const action = event.target.getAttribute('data-action');
+            if (action === 'edit') {
+                openEditModal(id);
+            } else if (action === 'delete') {
+                deleteLocation(id);
+        });
+    });
+}
+
+function applyFilters(data) {
+    const searchBox = document.getElementById('search-box').value.toLowerCase();
+    const regionFilter = document.getElementById('region-filter').value;
+    const typeFilter = document.getElementById('type-filter').value;
+    const statusFilter = document.getElementById('status-filter').value;
+
+    return data.filter(location => {
+        return (
+            (location.location.toLowerCase().includes(searchBox) || !searchBox) &&
+            (location.region === regionFilter || !regionFilter) &&
+            (location.type === typeFilter || !typeFilter) &&
+            (location.status === statusFilter || !statusFilter)
+        );
+    });
+}
+
+function paginate(data, page, perPage) {
+    const start = (page - 1) * perPage;
+    return data.slice(start, start + perPage);
+}
+
+function deleteLocation(id) {
+    const index = locations.findIndex(location => location.id === id);
+    if (index !== -1) {
+        locations.splice(index, 1);
+        renderTable();
+    }
+}
+
+function openEditModal(id) {
+    const location = locations.find(loc => loc.id === id);
+    if (location) {
+        document.getElementById('edit-location-id').value = location.id;
+        document.getElementById('edit-location-name').value = location.location;
+        document.getElementById('edit-location-region').value = location.region;
+        document.getElementById('edit-location-type').value = location.type;
+        document.getElementById('edit-location-device').value = location.device;
+        document.getElementById('edit-location-status').value = location.status;
+
+        document.getElementById('edit-location-modal').style.display = 'block';
+    }
+}
+
+function closeEditModal() {
+    document.getElementById('edit-location-modal').style.display = 'none';
+}
+
+document.getElementById('edit-location-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const id = parseInt(document.getElementById('edit-location-id').value);
+    const location = locations.find(loc => loc.id === id);
+
+    if (location) {
+        location.location = document.getElementById('edit-location-name').value;
+        location.region = document.getElementById('edit-location-region').value;
+        location.type = document.getElementById('edit-location-type').value;
+        location.device = document.getElementById('edit-location-device').value;
+        location.status = document.getElementById('edit-location-status').value;
+        renderTable();
+        closeEditModal();
+    }
+});
+
+function openAddModal() {
+    document.getElementById('add-location-modal').style.display = 'block';
+}
+
+function closeAddModal() {
+    document.getElementById('add-location-modal').style.display = 'none';
+}
+
+document.getElementById('add-location-button').addEventListener('click', openAddModal);
+document.getElementById('close-add-location-modal').addEventListener('click', closeAddModal);
+document.getElementById('close-edit-location-modal').addEventListener('click', closeEditModal);
+
+document.getElementById('add-location-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const newLocation = {
+        id: locations.length ? Math.max(locations.map(loc => loc.id)) + 1 : 1,
+        location: document.getElementById('add-location-name').value,
+        region: document.getElementById('add-location-region').value,
+        type: document.getElementById('add-location-type').value,
+        device: document.getElementById('add-location-device').value,
+        status: document.getElementById('add-location-status').value
+    };
+    locations.push(newLocation);
+    renderTable();
+    closeAddModal();
+});
+
+
+document.getElementById('search-box').addEventListener('input', () => {
+    currentPage = 1;
+    renderTable();
+});
+
+document.getElementById('region-filter').addEventListener('change', () => {
+    currentPage = 1;
+    renderTable();
+});
+
+document.getElementById('type-filter').addEventListener('change', () => {
+    currentPage = 1;
+    renderTable();
+});
+
+document.getElementById('prev-page').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+    }
+});
+
+document.getElementById('status-filter').addEventListener('change', () => {
+    currentPage = 1;
+    renderTable();
+});
+
+document.getElementById('prev-page').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+    }
+});
+
+document.getElementById('next-page').addEventListener('click', () => {
+    const filteredLocations = applyFilters(locations);
+    if (currentPage < Math.ceil(filteredLocations.length / itemsPerPage)) {
+        currentPage++;
+        renderTable();
+    }
+});
+
+document.getElementById('items-per-page').addEventListener('change', (event) => {
+    itemsPerPage = parseInt(event.target.value);
+    currentPage = 1;
+    renderTable();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderTable();
+});
+
+    </script>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

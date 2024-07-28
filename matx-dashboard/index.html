@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>matX Dashboard - Trends</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Add modal styling */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px; 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 600px; 
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .modal-form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .modal-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-form a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .modal-form a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Styling */
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-link {
+            margin-left: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .header-link:hover {
+            color: #d4af37; /* Highlight color */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="img/matx-logo.png" alt="matX Logo" class="logo">
+            <div class="header-info">
+                <h1>matX Business Account</h1>
+                <p>dashboard.matx.africa/trends/</p>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="header-link" id="login-btn">Login</a>
+                <a href="#" class="header-link" id="register-btn">Register</a>
+                <div class="user-icon">
+                    <img src="img/user-icon.png" alt="User Icon">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="trends.html">Trends</a></li>
+                <li><a href="matx-ai.html">matX AI</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- Your existing content here -->
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="login-close">&times;</span>
+            <h1>Login</h1>
+            <form class="modal-form" action="login-process.php" method="post">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" name="email" required>
+
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="password" required>
+
+                <button type="submit">Login</button>
+                <a href="#" id="forgot-password-btn">Forgot Password?</a>
+                <a href="#" id="register-link">Don't have an account? Register here</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="register-close">&times;</span>
+            <h1>Register</h1>
+            <form class="modal-form" action="register-process.php" method="post">
+                <label for="register-name">Name:</label>
+                <input type="text" id="register-name" name="name" required>
+
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" name="email" required>
+
+                <label for="register-old-password">Old Password:</label>
+                <input type="password" id="register-old-password" name="old-password">
+
+                <label for="register-new-password">New Password:</label>
+                <input type="password" id="register-new-password" name="new-password" required>
+
+                <label for="register-confirm-password">Confirm Password:</label>
+                <input type="password" id="register-confirm-password" name="confirm-password" required>
+
+                <button type="submit">Register</button>
+                <a href="#" id="login-link">Already have an account? Login here</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgot-password-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="forgot-password-close">&times;</span>
+            <h1>Forgot Password</h1>
+            <form class="modal-form" action="reset-password-process.php" method="post">
+                <label for="forgot-password-email">Email:</label>
+                <input type="email" id="forgot-password-email" name="email" required>
+
+                <button type="submit">Send OTP</button>
+                <a href="#" id="back-to-login">Back to Login</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get modals
+        var loginModal = document.getElementById("login-modal");
+        var registerModal = document.getElementById("register-modal");
+        var forgotPasswordModal = document.getElementById("forgot-password-modal");
+
+        // Get buttons that open modals
+        var loginBtn = document.getElementById("login-btn");
+        var registerBtn = document.getElementById("register-btn");
+        var forgotPasswordBtn = document.getElementById("forgot-password-btn");
+
+        // Get <span> elements that close modals
+        var loginClose = document.getElementById("login-close");
+        var registerClose = document.getElementById("register-close");
+        var forgotPasswordClose = document.getElementById("forgot-password-close");
+
+        // Get links to switch between modals
+        var registerLink = document.getElementById("register-link");
+        var loginLink = document.getElementById("login-link");
+        var backToLogin = document.getElementById("back-to-login");
+
+        // Open modals
+        loginBtn.onclick = function() {
+            loginModal.style.display = "block";
+        }
+        registerBtn.onclick = function() {
+            registerModal.style.display = "block";
+        }
+
+        // Close modals
+        loginClose.onclick = function() {
+            loginModal.style.display = "none";
+        }
+        registerClose.onclick = function() {
+            registerModal.style.display = "none";
+        }
+        forgotPasswordClose.onclick = function() {
+            forgotPasswordModal.style.display = "none";
+        }
+
+        // Switch between modals
+        registerLink.onclick = function() {
+            loginModal.style.display = "none";
+            registerModal.style.display = "block";
+        }
+        loginLink.onclick = function() {
+            registerModal.style.display = "none";
+            loginModal.style.display = "block";
+        }
+        forgotPasswordBtn.onclick = function() {
+            loginModal.style.display = "none";
+            forgotPasswordModal.style.display = "block";
+        }
+        backToLogin.onclick = function() {
+            forgotPasswordModal.style.display = "none";
+            loginModal.style.display = "block";
+        }
+
+        // Close modals when clicking outside of them
+        window.onclick = function(event) {
+            if (event.target == loginModal) {
+                loginModal.style.display = "none";
+            }
+            if (event.target == registerModal) {
+                registerModal.style.display = "none";
+            }
+            if (event.target == forgotPasswordModal) {
+                forgotPasswordModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

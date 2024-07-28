@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - matX Business Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .header-container .logo {
+            height: 40px;
+        }
+
+        .header-info {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .user-icon img {
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .side-menu {
+            width: 200px;
+            background-color: #444;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .side-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .side-menu ul li {
+            padding: 10px;
+        }
+
+        .side-menu ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .side-menu ul li a:hover {
+            background-color: #555;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #login-form {
+            max-width: 300px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #login-form button:hover {
+            background-color: #555;
+        }
+
+        #login-prompt {
+            text-align: center;
+        }
+
+        #notifications-content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="matx-logo.png" alt="matX Logo" class="logo">
+            <div class="header-info">
+                <h1>matX Business Account - matX AI</h1>
+                <p>dashboard.matx.africa/notifications/</p>
+            </div>
+            <div class="user-icon">
+                <img src="user-icon.png" alt="User Icon">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="side-menu">
+            <ul>
+            <li><a href="matx-ai.html">matX AI</a></li>
+            <li><a href="trends.html">Trends</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="notifications.html">Notifications</a></li>
+            <li class="active"><a href="settings.html">Settings</a></li>
+            <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h2>Notifications</h2>
+            <div id="login-prompt">
+                <p>Please <a href="register.html">login</a> to view notifications.</p>
+            </div>
+            <div id="notifications-content" style="display: none;">
+                <p>Your notifications will appear here.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to simulate login and store login state
+            function handleLogin(username, password) {
+                // Simulate login validation (in a real application, validate with a server)
+                if (username === 'user' && password === 'pass') {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    return true;
+                }
+                return false;
+            }
+
+            // Check if the user is logged in
+            function checkLogin() {
+                return localStorage.getItem('isLoggedIn') === 'true';
+            }
+
+            // Handle login form submission
+            const loginForm = document.getElementById('login-form');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    if (handleLogin(username, password)) {
+                        // Redirect to notifications page after successful login
+                        window.location.href = 'notifications.html';
+                    } else {
+                        alert('Invalid username or password.');
+                    }
+                });
+            }
+
+            // Display login prompt or notifications content based on login status
+            if (window.location.pathname.endsWith('notifications.html')) {
+                if (checkLogin()) {
+                    document.getElementById('login-prompt').style.display = 'none';
+                    document.getElementById('notifications-content').style.display = 'block';
+                } else {
+                    document.getElementById('login-prompt').style.display = 'block';
+                    document.getElementById('notifications-content').style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

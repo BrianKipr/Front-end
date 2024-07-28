@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register/Login - matX</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <div class="form-container">
+        <h1 id="form-title">Register</h1>
+        <form id="register-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <form id="login-form" style="display: none;">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="login-email" required>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="login-password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <a href="#" id="toggle-link">Already have an account? Login here</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registerForm = document.getElementById('register-form');
+            const loginForm = document.getElementById('login-form');
+            const toggleLink = document.getElementById('toggle-link');
+            const formTitle = document.getElementById('form-title');
+
+            toggleLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (registerForm.style.display === 'none') {
+                    registerForm.style.display = 'block';
+                    loginForm.style.display = 'none';
+                    formTitle.textContent = 'Register';
+                    toggleLink.textContent = 'Already have an account? Login here';
+                } else {
+                    registerForm.style.display = 'none';
+                    loginForm.style.display = 'block';
+                    formTitle.textContent = 'Login';
+                    toggleLink.textContent = 'Don\'t have an account? Register here';
+                }
+            });
+
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const newPassword = document.getElementById('new-password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+
+                if (newPassword !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+
+                // Save user data to localStorage (for demonstration purposes)
+                localStorage.setItem('user', JSON.stringify({ name, email, password: newPassword }));
+                alert('Registration successful! You can now login.');
+                toggleLink.click();
+            });
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+
+                const storedUser = JSON.parse(localStorage.getItem('user'));
+
+                if (storedUser && storedUser.email === email && storedUser.password === password) {
+                    alert('Login successful!');
+                    // Redirect to notifications or other page
+                    window.location.href = 'notifications.html';
+                } else {
+                    alert('Invalid email or password!');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

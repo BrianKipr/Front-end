@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>matX AI Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmaegrn7Jxy1Hbw0s6sIir2GOAaOiCHuleEw&s" alt="matX Logo" class="logo">
+            <div class="header-info">
+                <h1>matX Business Account - matX AI</h1>
+                <p>dashboard.ma/home/oem/fronter/matx-dashboardtx.africa/locations/</p>
+            </div>
+            <div class="user-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-etsNxNtN4wsYsfITN1nLJ-eFLz9FDGPvyg&s" alt="User Icon">
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+             
+            </div>
+            <nav>
+                <ul>
+                    
+                       
+                    <li><a href="matx-ai.html">matX AI</a></li>
+                    <li><a href="trends.html">Trends</a></li>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="notifications.html">Notifications</a></li>
+                    <li class="active"><a href="settings.html">Settings</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <h1>Notification</h1>
+
+            <div class="message-history">
+                <h2>Message History</h2>
+                <div class="message">
+                    <div class="date">Jul 08</div>
+                    <div class="content">Gas status for Java Kimathi Street</div>
+                    <span class="icon" onclick="deleteMessage(this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h10.5a1 1 0 0 1 1 1z"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <div class="ai-features">
+                <div class="feature">
+                    <div class="icon">🔍</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 0 1H5.707l5.147 5.146a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                            <path d="M12.5 13a.5.5 0 0 1-.5.5H5.707l5.147 5.146a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </span>
+                    <h3>Compare Usage</h3>
+                    <p>See how each location stacks up against the others in terms of gas consumption.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🤖</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-1x2-fill" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H8zm0 7a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H8z"/>
+                        </svg>
+                    </span>
+                    <h3>Identify Patterns</h3>
+                    <p>Understand the typical gas usage behaviour to optimise operations and plan ahead.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📊</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-3x3-fill" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H8zm0 7a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H8zm0 7a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V14a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H8z"/>
+                        </svg>
+                    </span>
+                    <h3>Spot Anomalies</h3>
+                    <p>Detect unusual gas usage promptly to avoid waste and ensure safety.</p>
+                </div>
+            </div>
+            <div class="section settings-form">
+                <h2>Settings</h2>
+                <label for="theme-select">Select Theme:</label>
+                <select id="theme-select">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+                <button onclick="applySettings()">Apply Settings</button>
+            </div>
+
+
+            <div class="message-input">
+                <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        <path d="M3 14s.055-.447.154-.745L7.414 5.255a.75.75 0 0 1 .71-.71L13.745 9.846a.75.75 0 0 1 0 1.104l-5.699 5.699a.75.75 0 0 1-.71-.71L3.154 14zm11.69 2.601a.75.75 0 0 1 0-1.104L8.586 5.255a.75.75 0 0 1 .71-.71L14.947 1.104a.75.75 0 0 1 1.104 0l5.699 5.699a.75.75 0 0 1 0 1.104l-5.699 5.699z"/>
+                    </svg>
+                </span>
+                <input type="text" placeholder="Message matX AI">
+                <button class="send-button" onclick="sendMessage()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 0 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <button class="new-message-button" onclick="newMessage()">
+                + New Message
+            </button>
+
+            <div class="notifications">
+                <h2>Notifications</h2>
+                <div id="notificationList"></div>
+                <button class="clear-notifications-button" onclick="clearNotifications()">Clear Notifications</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
