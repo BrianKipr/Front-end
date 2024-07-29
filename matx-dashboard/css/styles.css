@@ -1323,35 +1323,31 @@ flex-direction: column; /* Stack items vertically on small screens */
 }
 
 .sidebar {
-width: 100%; /* Sidebar takes full width */
-order: 1; /* Sidebar appears first (on top) */
+width: 100%; 
+order: 1; 
 }
 
 .main-content {
-order: 2; /* Main content appears after the sidebar */
+order: 2; 
 }
 }
-
-
-
 /* Hover effect for header links */
 .header-link:hover {
-    color: #007bff; /* Change color on hover */
-    text-decoration: underline; /* Add underline on hover */
+    color: #007bff; 
+    text-decoration: underline; 
 }
 
 /* Hover effect for cards */
 .card:hover {
-    background-color: #7b7d80; /* Light background color on hover */
-    border: 1px solid #101111; /* Border color on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s; /* Smooth transition */
-}
+    background-color: #7b7d80;  
+    border: 1px solid #101111; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s; 
 
 /* Hover effect for sidebar links */
 .sidebar a:hover {
-    background-color: #4c4e50; /* Background color on hover */
-    color: #0c0c0c; /* Text color on hover */
+    background-color: #4c4e50;
+    color: #0c0c0c; 
 }
 
 /* Hover effect for dropdowns */
